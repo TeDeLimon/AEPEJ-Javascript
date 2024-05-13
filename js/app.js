@@ -1,0 +1,1 @@
+alert("Hola mundo, ya puedo agregar JS y a mi curriculum");
