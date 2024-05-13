@@ -52,5 +52,58 @@ console.log(usuario.trim());
 // Replace
 // Slice 
 // Join
+// Slipt
 // ToUpperCase
 // Ejercicio: dada la siguiente cadena de texto "De mayor quisiera ser como tú", reemplazar "De mayor" por "De pequeño" y convertir todo el texto a mayúsculas
+
+const texto = "De mayor quisiera ser como tú y de mayor también quisiera ser como Alex";
+
+const textoModificado = texto.replace("De mayor", "De pequeño").toUpperCase();
+
+/**
+ * 
+ * @param {String} texto El texto original
+ * @param {String} textoBusqueda La cadena de texto a buscar
+ * @param {String} textoReemplazo El texto por lo que se reemplaza
+ */
+function modificarTexto(texto, textoBusqueda, textoReemplazo) {
+
+    //Verificar si el texto de búsqueda está en la cadena
+
+    const index = texto.indexOf(textoBusqueda);
+
+    if (index === -1) {
+
+        return null;
+    }
+
+    const textoDivido = texto.split(textoBusqueda);
+
+    const resultado = textoDivido[0] + textoReemplazo + textoDivido[1];
+
+    return resultado;
+}
+
+const textoFinal = modificarTexto(texto, "tú", "Alfredo");
+
+// Otra solución alternativa
+const textoAsArray = texto.split(" ");
+
+let textoBusqueda = "mayor";
+let textoReemplazo = "menor";
+
+// Ejercicio con bucles
+const arrayModificado = textoAsArray.map((palabra) => {
+
+    if (palabra.includes(textoBusqueda)) {
+
+        return textoReemplazo;
+    }
+
+    return palabra;
+});
+
+
+console.log('textoAsArray :>> ', textoAsArray);
+console.log('textoAsArray :>> ', arrayModificado);
+
